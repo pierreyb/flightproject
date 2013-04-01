@@ -1,0 +1,13 @@
+defaults: &defaults
+
+  # Default editor
+
+
+development:
+  <<: *defaults
+
+production:
+  <<: *defaults
+
+test:
+  <<: *defaults

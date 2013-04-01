@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=  'Flights search Near you' %></title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= yield(:addtional_scripts) %>
+    <%= javascript_include_tag "google_analytics.js" %>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDDCyhOn-cLwuiJp4YAUadeSMgevQCqpvs&sensor=false"></script>
+    <%= csrf_meta_tags %>
+    <%= include_gon %>
+  </head>
+  <body>
+    <div id="header">
+      <%= image_tag  "logo.jpg"%>
+    </div>
+    <div id="contents">
+      <%= yield %>
+    </div>
+    <div id="footer">
+      <%= render "layouts/footer_content" %>
+    </div>
+  </body>
+</html>

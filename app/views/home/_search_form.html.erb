@@ -1,0 +1,23 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<div id="container">
+  <%= form_tag url_for(:controller => :home, :action => :search_routes), :id => "search_form" do %>
+
+  <div id="search_text">
+    <!-- Field origin adress -->
+    <!-- label_tag :query_orig,'site.search.search_query_orig_label' -->
+    <%= text_field_tag :query_orig,h(params[:query_orig]),:tabindex => "1",:placeholder => 'site.search.search_query_orig',:autofocus => "autofocus" %>
+  </div>
+    
+  <div id="search_text">
+    <!-- Field destination adress -->
+    <!-- label_tag :query_dest,'site.search.search_query_dest_label' -->
+    <%= text_field_tag :query_dest,h(params[:query_dest]),:tabindex => "1",:placeholder => 'site.search.search_query_dest' %>
+  </div>
+
+    <%= button_tag 'site.search.submit_text' %>
+  <% end %>
+</div>
