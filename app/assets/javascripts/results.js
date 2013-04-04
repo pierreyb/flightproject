@@ -38,10 +38,28 @@ function initialize_map_orig() {
         center: LatLng,
         zoom: 6,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: false,
         streetViewControl: false        
     };
 
-    var mapOrig=new google.maps.Map(document.getElementById("mapOrig"),mapProp);
+    var mapOrig = new google.maps.Map(document.getElementById("mapOrig"),mapProp);
+    
+    var markerOrig = new google.maps.Marker({
+    	position: LatLng,
+    	map: mapOrig
+    });
+        
+    var markerAiportOrig = [] ;
+    
+    for (i in gon.airports_orig) {
+    	var AirportLatLng = new google.maps.LatLng(gon.airports_orig[i]["latitude"],gon.airports_orig[i]["longitude"]) ;
+    	marker = new google.maps.Marker({
+    		position: AirportLatLng,
+    		map: mapOrig,
+    		title: gon.airports_orig[i]["fullname"]
+    	});
+    	markerAiportOrig.push(marker) ;
+    }
 }
 
 function initialize_map_dest() {
@@ -51,10 +69,29 @@ function initialize_map_dest() {
         center: LatLng,
         zoom: 6,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: false,
         streetViewControl: false        
     };
 
     var mapDest=new google.maps.Map(document.getElementById("mapDest"),mapProp);
+
+    var markerDest = new google.maps.Marker({
+    	position: LatLng,
+    	map: mapDest
+    });
+        
+    var markerAiportDest = [] ;
+
+    for (i in gon.airports_dest) {
+    	var AirportLatLng = new google.maps.LatLng(gon.airports_dest[i]["latitude"],gon.airports_dest[i]["longitude"]) ;
+    	marker = new google.maps.Marker({
+    		position: AirportLatLng,
+    		map: mapDest,
+    		title: gon.airports_dest[i]["fullname"] 
+    	});
+    	markerAiportDest.push(marker) ;
+    }
+
 }
 
 function hide_map() {

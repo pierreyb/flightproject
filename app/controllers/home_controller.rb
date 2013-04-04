@@ -82,6 +82,12 @@ class HomeController < ApplicationController
       route["tot_distance"] = route["orig_distance"] + route["dest_distance"]
     end
     
+    # Select only the airports used
+    @airports_orig.select!{|airport| airport["used"] == "true"}
+    @airports_dest.select!{|airport| airport["used"] == "true"}
+    gon.airports_orig = @airports_orig
+    gon.airports_dest = @airports_dest
+    
     # Sort the destination by distance of both airport
     @routes.sort! {|r1,r2| r1["tot_distance"] <=> r2["tot_distance"]}
     render :action => "results"
