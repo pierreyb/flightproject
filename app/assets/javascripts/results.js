@@ -95,13 +95,15 @@ function initialize_map_dest() {
 }
 
 function hide_map() {
-    $('#mapButton').text('t.site.show.map') ;    
+    $('#buttonShowMaps').show();
+    $('#buttonHideMaps').hide();
     $('#mapOrig').hide() ;
     $('#mapDest').hide() ;
 }
 
 function show_map() {
-    $('#mapButton').text('t.site.hide.map') ;
+    $('#buttonShowMaps').hide();
+    $('#buttonHideMaps').show();
     $('#mapOrig').show() ;    
     $('#mapDest').show() ;
 //$("#mapButton").unbind('click', mapButtonOriginalEventHandler).click(mapButtonShowMapEventHandler);

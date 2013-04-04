@@ -2,4 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  search_search_query_orig: Your origin address
+  search_search_query_dest: Your destination address
+  search_submit_text: Search flights
+  button_show_maps: Show maps
+  button_hide_maps: Hide maps
+  search_google_text: Search google for flights

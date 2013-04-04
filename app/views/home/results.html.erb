@@ -1,72 +1,79 @@
 <% content_for :addtional_scripts do %>
-  <%=javascript_include_tag 'results' %>
+<%= javascript_include_tag 'results' %>
 <% end %>
 
 <!-- Show form with search adress -->
 <%= render "search_form" %>
 
-
-
 <div id="container">
-  <% address_orig = @adress_orig.first %>
-  <div id="result_address">
-    <%= simple_format address_orig[:address].gsub(",","\n") %> 
-  </div>
+	<% address_orig = @adress_orig.first %>
+	<div id="result_address">
+		<%= simple_format address_orig[:address].gsub(",","\n") %>
+	</div>
 
-  <% address_dest = @adress_dest.first %>
-  <div id="result_address">
-    <%= simple_format address_dest[:address].gsub(",","\n") %>
-  </div>
+	<% address_dest = @adress_dest.first %>
+	<div id="result_address">
+		<%= simple_format address_dest[:address].gsub(",","\n") %>
+	</div>
 
-  <%= button_tag 't.site.show.map', 
-    :id => 'mapButton'
-%>
+	<%= button_tag(:type => 'button', :id => 'mapButton') do %>
+	<span id="buttonShowMaps"> <%= t('button_show_maps') %> </span>
+	<span id="buttonHideMaps" style="display:none;"> <%= t('button_hide_maps') %> </span>
+	<% end %>
 
-  <div id="map">
-    <div id="mapOrig"></div>
-    <div id="mapDest"></div>
-  </div>
+	<div id="map">
+		<div id="mapOrig"></div>
+		<div id="mapDest"></div>
+	</div>
 </div>
 
 <div id="container">
-  <div id="airports">
-    <ul>
-      <% if not(@airports_orig.nil?) %>
-        <% @airports_orig.each do |airport| %>
-          <% if airport["used"] == "true" %>
-            <li> <%= airport["fullname"] %> </li>
-          <% end %>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-  <div id="airports">
-    <ul>
-      <% if not(@airports_dest.nil?) %>
-        <% @airports_dest.each do |airport| %>
-          <% if airport["used"] == "true" %>
-            <li> <%= airport["fullname"] %>  </li>
-          <% end %>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
+	<div id="airports">
+		<ul>
+			<% if not(@airports_orig.nil?) %>
+			<% @airports_orig.each do |airport| %>
+			<% if airport["used"] == "true" %>
+			<li>
+				<%= airport["fullname"] %>
+			</li>
+			<% end %>
+			<% end %>
+			<% end %>
+		</ul>
+	</div>
+	<div id="airports">
+		<ul>
+			<% if not(@airports_dest.nil?) %>
+			<% @airports_dest.each do |airport| %>
+			<% if airport["used"] == "true" %>
+			<li>
+				<%= airport["fullname"] %>
+			</li>
+			<% end %>
+			<% end %>
+			<% end %>
+		</ul>
+	</div>
 </div>
 
 <div id="container">
-  <ul id="routes">
-    <% if not(@routes.nil?) %>
-      <% @routes.each do |route| %>
-        <li> 
-          <p> <%= route["airline_name"] %>  </p>
-          <p> <%= image_tag("icon_departure_white.png", :height => '20') %> 
-            <%= route["orig_airport_name"] %> 
-          </p>
-          <p> <%= image_tag("icon_arrival_white.png", :height => '20') %> 
-            <%= route["dest_airport_name"] %> 
-          </p>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
+	<ul id="routes">
+		<% if not(@routes.nil?) %>
+		<% @routes.each do |route| %>
+		<li>
+			<p>
+				<%= route["airline_name"] %>
+			</p>
+			<p>
+				<%= image_tag("icon_departure_white.png", :height => '20') %>
+				<%= route["orig_airport_name"] %>
+			</p>
+			<p>
+				<%= image_tag("icon_arrival_white.png", :height => '20') %>
+				<%= route["dest_airport_name"] %>
+			</p>
+		</li>
+		<% end %>
+		<% end %>
+	</ul>
 </div>
