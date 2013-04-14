@@ -223,6 +223,9 @@ div.slider div.handle {
     margin-top: 2px;
 }
 
+#routes a {
+	text-decoration: none;
+}
 
 /*------------------------------ FOOTER ------------------------------*/
 #footer {

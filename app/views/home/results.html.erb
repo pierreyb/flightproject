@@ -60,6 +60,10 @@
 	<ul id="routes">
 		<% if not(@routes.nil?) %>
 		<% @routes.each do |route| %>
+		<%= link_to "http://www.google.com/search?q=flights+"+
+		route["airline_name"]+"+from "+
+		route["orig_airport_name"]+"+to "+
+		route["dest_airport_name"], :target => "_blank" do %>
 		<li>
 			<p>
 				<%= route["airline_name"] %>
@@ -73,6 +77,7 @@
 				<%= route["dest_airport_name"] %>
 			</p>
 		</li>
+		<% end %>
 		<% end %>
 		<% end %>
 	</ul>
