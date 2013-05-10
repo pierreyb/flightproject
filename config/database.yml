@@ -1,5 +1,4 @@
 
-
 # MySQL.  Versions 4.1 and 5.0 are recommended.
 # 
 # Install the MYSQL driver
@@ -36,9 +35,9 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: flight_project_production
+  database: flightsearch
   pool: 5
-  username: flight_project
-  password: flight_project
+  username: admin7XgaFww
+  password: 61LpgxQ12JXK
   host: localhost
 
